@@ -134,7 +134,7 @@
 					};
 				};
 			};
-			buildConfigurationList = FD24AD1A2F2F8D8000C5A1EA /* Build configuration list for PBXProject "weatherApp" */;
+			buildConfigurationList = FD24AD1A2F2F8D8000C5A1EA /* Build configuration list for PBXProject "WeatherApp" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -383,7 +383,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FD24AD1A2F2F8D8000C5A1EA /* Build configuration list for PBXProject "weatherApp" */ = {
+		FD24AD1A2F2F8D8000C5A1EA /* Build configuration list for PBXProject "WeatherApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FD24AD312F2F8D8300C5A1EA /* Debug */,

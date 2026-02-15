@@ -13,9 +13,15 @@ struct LocationModel: Codable {
 
 struct CurrentModel: Codable {
     var temp_c: Double
+    var condition: ConditionModel
 }
 
 struct WeatherResponce: Codable {
     var location: LocationModel
     var current: CurrentModel
+}
+
+struct ConditionModel: Codable {
+    var text: String
+    var ico: String
 }
