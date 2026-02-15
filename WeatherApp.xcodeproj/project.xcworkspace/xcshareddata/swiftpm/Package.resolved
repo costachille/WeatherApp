@@ -1,0 +1,22 @@
+{
+  "pins" : [
+    {
+      "identity" : "alamofire",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Alamofire/Alamofire",
+      "state" : {
+        "revision" : "f455c2975872ccd2d9c81594c658af65716e9b9a",
+        "version" : "5.9.1"
+      }
+    },
+    {
+      "identity" : "swiftlocation",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/malcommac/SwiftLocation",
+      "state" : {
+        "revision" : "64620973d0c19043845e82eac9ac1c1442537ce1"
+      }
+    }
+  ],
+  "version" : 2
+}
