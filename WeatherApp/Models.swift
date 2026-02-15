@@ -16,7 +16,7 @@ struct CurrentModel: Codable {
     var condition: ConditionModel
 }
 
-struct WeatherResponce: Codable {
+struct WeatherResponse: Codable {
     var location: LocationModel
     var current: CurrentModel
 }
@@ -27,8 +27,8 @@ struct ConditionModel: Codable {
     
     var iconURL: URL? {
         let secureIcon = icon.hasPrefix("https:")
-        : icon
-        ? "https:\(icon)"
+        ? icon
+        : "https:\(icon)"
         
         return URL(string: secureIcon)
     }

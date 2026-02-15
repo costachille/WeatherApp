@@ -42,7 +42,10 @@ class NavigationController: UINavigationController {
                     
                     DispatchQueue.main.async {
                         if let weather = weather {
-                            self.appState = .weather(city: weather.location.name, temperature: Int(weather.current.temp_c))
+                            self.appState = .weather(
+                                city: weather.location.name,
+                                temperature: Int(weather.current.temp_c),
+                                iconURL: weather.current.condition.iconURL)
                         } else {
                             self.appState = .failedToRetrieveWeather
                         }
@@ -54,8 +57,12 @@ class NavigationController: UINavigationController {
                     self.appState = .retrievingLocation
                 }
                 
-            case .weather(let city, let temperature):
-                self.showWeather(withTemperature: temperature, forLocation: city) {
+            case .weather(let city, let temperature, let iconURL):
+                self.showWeather(
+                    withTemperature: temperature,
+                    forLocation: city,
+                    iconURL: iconURL
+                ) {
                     self.appState = .retrievingLocation
                 }
             }
@@ -69,12 +76,18 @@ class NavigationController: UINavigationController {
         self.appState = .retrievingLocation
     }
     
-    func showWeather(withTemperature temperature: Int, forLocation location: String, onRequestedRefresh: @escaping () -> Void) {
+    func showWeather(
+        withTemperature temperature: Int,
+        forLocation location: String,
+        iconURL: URL?,
+        onRequestedRefresh: @escaping () -> Void
+    ) {
         guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "WeatherViewController") as? WeatherViewController else {
             return
         }
         let _ = vc.view
         vc.location = location
+        vc.iconURL = iconURL
         vc.temperature = temperature
         vc.didRequestRefresh = onRequestedRefresh
         self.viewControllers = [vc]

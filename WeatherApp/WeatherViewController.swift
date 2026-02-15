@@ -10,8 +10,6 @@ import UIKit
 
 class WeatherViewController: UIViewController {
     
-
-    
     var location: String? {
         didSet {
             guard let location = self.location else { return }
@@ -25,6 +23,24 @@ class WeatherViewController: UIViewController {
         didSet {
             guard let temperature = self.temperature else { return }
             self.temperatureLabel.text = "\(temperature)°"
+        }
+    }
+    
+    @IBOutlet private var weatherIconImageView: UIImageView!
+    
+    var iconURL: URL? {
+
+        didSet {
+            guard let iconURL = self.iconURL else { return }
+
+            Task {
+                let image = await ImageLoader.shared.loadImage(from: iconURL)
+
+                DispatchQueue.main.async {
+                    self.weatherIconImageView.image = image
+                }
+            }
+            print(iconURL)
         }
     }
     
