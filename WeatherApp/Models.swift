@@ -23,5 +23,13 @@ struct WeatherResponce: Codable {
 
 struct ConditionModel: Codable {
     var text: String
-    var ico: String
+    var icon: String
+    
+    var iconURL: URL? {
+        let secureIcon = icon.hasPrefix("https:")
+        : icon
+        ? "https:\(icon)"
+        
+        return URL(string: secureIcon)
+    }
 }
