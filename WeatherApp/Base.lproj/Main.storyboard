@@ -92,6 +92,7 @@
                     <connections>
                         <outlet property="locationLabel" destination="viD-NQ-8v7" id="7Om-Yb-baL"/>
                         <outlet property="temperatureLabel" destination="MVd-hz-2Fa" id="aCa-tp-kcL"/>
+                        <outlet property="weatherIconImageView" destination="G2D-uk-ohz" id="oGc-DO-6AG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xCf-fd-o47" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

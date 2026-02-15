@@ -13,5 +13,5 @@ enum AppState {
     case failedToRetrieveLocation
     case retrievingWeather(location: CLLocationCoordinate2D)
     case failedToRetrieveWeather
-    case weather(city: String, temperature: Int)
+    case weather(city: String, temperature: Int, iconURL: URL?)
 }

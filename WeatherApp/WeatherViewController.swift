@@ -26,6 +26,24 @@ class WeatherViewController: UIViewController {
         }
     }
     
+    @IBOutlet private var weatherIconImageView: UIImageView!
+    
+    var iconURL: URL? {
+
+        didSet {
+            guard let iconURL = self.iconURL else { return }
+
+            Task {
+                let image = await ImageLoader.shared.loadImage(from: iconURL)
+
+                DispatchQueue.main.async {
+                    self.weatherIconImageView.image = image
+                }
+            }
+            print(iconURL)
+        }
+    }
+    
     @IBOutlet private weak var temperatureLabel: UILabel!
     
     

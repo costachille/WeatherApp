@@ -13,13 +13,16 @@ class ApiClient {
     
     private static let API_KEY = "735dcf37e9a249ba83274550260102"
     
-    func fetchWeather(for location: CLLocationCoordinate2D) async -> WeatherResponce? {
+    func fetchWeather(for location: CLLocationCoordinate2D) async -> WeatherResponse? {
         let urlString = "https://api.weatherapi.com/v1/current.json?key=\(Self.API_KEY)&q=\(location.latitude),\(location.longitude)"
         
         do {
             let data = try await AF.request(urlString).serializingData().value
             let decoder = JSONDecoder()
-            return try decoder.decode(WeatherResponce.self, from: data)
+            let weather = try? decoder.decode(WeatherResponse.self, from: data)
+            
+            print(weather?.current.condition.icon ?? "ICON IS NIL")
+            return weather
         } catch {
             return nil
         }

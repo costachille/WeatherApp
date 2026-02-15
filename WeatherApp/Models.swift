@@ -13,9 +13,23 @@ struct LocationModel: Codable {
 
 struct CurrentModel: Codable {
     var temp_c: Double
+    var condition: ConditionModel
 }
 
-struct WeatherResponce: Codable {
+struct WeatherResponse: Codable {
     var location: LocationModel
     var current: CurrentModel
+}
+
+struct ConditionModel: Codable {
+    var text: String
+    var icon: String
+    
+    var iconURL: URL? {
+        let secureIcon = icon.hasPrefix("https:")
+        ? icon
+        : "https:\(icon)"
+        
+        return URL(string: secureIcon)
+    }
 }
